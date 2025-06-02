@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Delícia</title>
+    <style>
+        /* Estilos CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 10px 0;
+            background-color: #b71c1c;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ffcc00;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ffd633;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 2rem;
+            color: #d32f2f;
+        }
+        
+        .pizzas {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .pizza-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .pizza-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pizza-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .pizza-info {
+            padding: 20px;
+        }
+        
+        .pizza-info h3 {
+            margin-bottom: 10px;
+            color: #d32f2f;
+        }
+        
+        .pizza-price {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .pizzas {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Pizzaria Delícia</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#menu">Cardápio</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>As Melhores Pizzas da Cidade</h1>
+            <a href="#menu" class="btn">Ver Cardápio</a>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section id="menu">
+            <h2 class="section-title">Nosso Cardápio</h2>
+            
+            <div class="pizzas">
+                <div class="pizza-card">
+                    <div class="pizza-img" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38')"></div>
+                    <div class="pizza-info">
+                        <h3>Margherita</h3>
+                        <p>Molho de tomate, mussarela, manjericão fresco e azeite.</p>
+                        <div class="pizza-price">R$ 45,90</div>
+                        <a href="#contact" class="btn">Pedir Agora</a>
+                    </div>
+                </div>
+                
+                <div class="pizza-card">
+                    <div class="pizza-img" style="background-image: url('https://images.unsplash.com/photo-1541745537411-b8046dc6d66c')"></div>
+                    <div class="pizza-info">
+                        <h3>Pepperoni</h3>
+                        <p>Molho de tomate, mussarela e pepperoni.</p>
+                        <div class="pizza-price">R$ 52,90</div>
+                        <a href="#contact" class="btn">Pedir Agora</a>
+                    </div>
+                </div>
+                
+                <div class="pizza-card">
+                    <div class="pizza-img" style="background-image: url('https://images.unsplash.com/photo-1595854341625-f33ee10dbf94')"></div>
+                    <div class="pizza-info">
+                        <h3>Quatro Queijos</h3>
+                        <p>Molho de tomate, mussarela, provolone, parmesão e gorgonzola.</p>
+                        <div class="pizza-price">R$ 55,90</div>
+                        <a href="#contact" class="btn">Pedir Agora</a>
+                    </div>
+                </div>
+                
+                <div class="pizza-card">
+                    <div class="pizza-img" style="background-image: url('https://images.unsplash.com/photo-1593504049359-74330189a345')"></div>
+                    <div class="pizza-info">
+                        <h3>Calabresa</h3>
+                        <p>Molho de tomate, mussarela e calabresa.</p>
+                        <div class="pizza-price">R$ 48,90</div>
+                        <a href="#contact" class="btn">Pedir Agora</a>
+                    </div>
+                </div>
+                
+                <div class="pizza-card">
+                    <div class="pizza-img" style="background-image: url('https://images.unsplash.com/photo-1604382354936-07c5d9983bd3')"></div>
+                    <div class="pizza-info">
+                        <h3>Portuguesa</h3>
+                        <p>Molho de tomate, mussarela, presunto, ovos, cebola e azeitonas.</p>
+                        <div class="pizza-price">R$ 58,90</div>
+                        <a href="#contact" class="btn">Pedir Agora</a>
+                    </div>
+                </div>
+                
+                <div class="pizza-card">
+                    <div class="pizza-img" style="background-image: url('https://images.unsplash.com/photo-1620374645498-af6bd681a0bd')"></div>
+                    <div class="pizza-info">
+                        <h3>Frango com Catupiry</h3>
+                        <p>Molho de tomate, mussarela, frango desfiado e catupiry.</p>
+                        <div class="pizza-price">R$ 56,90</div>
+                        <a href="#contact" class="btn">Pedir Agora</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2 class="section-title">Faça seu Pedido</h2>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Endereço:</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pizza">Escolha sua Pizza:</label>
+                    <select id="pizza" name="pizza" required>
+                        <option value="">Selecione uma pizza</option>
+                        <option value="margherita">Margherita - R$ 45,90</option>
+                        <option value="pepperoni">Pepperoni - R$ 52,90</option>
+                        <option value="quatro-queijos">Quatro Queijos - R$ 55,90</option>
+                        <option value="calabresa">Calabresa - R$ 48,90</option>
+                        <option value="portuguesa">Portuguesa - R$ 58,90</option>
+                        <option value="frango-catupiry">Frango com Catupiry - R$ 56,90</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="size">Tamanho:</label>
+                    <select id="size" name="size" required>
+                        <option value="pequena">Pequena (4 fatias)</option>
+                        <option value="media">Média (6 fatias)</option>
+                        <option value="grande">Grande (8 fatias)</option>
+                        <option value="familia">Família (12 fatias)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Observações:</label>
+                    <textarea id="message" name="message"></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Enviar Pedido</button>
+            </form>
+        </section>
+    </div>
+    
+    <footer>
+        <p>Pizzaria Delícia &copy; 2023 - Todos os direitos reservados</p>
+        <p>Telefone: (11) 1234-5678 | Endereço: Rua das Pizzas, 123 - Centro</p>
+    </footer>
+</body>
+</html>
